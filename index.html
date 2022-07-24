@@ -22,30 +22,33 @@
         margin: 0;
     }
   </style>
-  <body class="bg-dark">
-    <!-- Header -->
+  <body class="bg-dark" data-barba="wrapper">
+
+    <div id="swiper">
+    </div>
+
     <header>
         <!-- Nav bar -->
         <div class="nav-container" id="top">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid nav-custom">
-                    <a class="navbar-brand" href="#">Reequest</a>
+                    <a class="navbar-brand" href="./index.html">Reequest</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse ml-auto justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link link-menu" href="projects.html">Realizacje</a>
+                                <a class="nav-link link-menu" href="./projects.html">Realizacje</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-menu" href="#">Usługi</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-menu" href="about.html">O agencji</a>
+                                <a class="nav-link link-menu" href="./about.html">O agencji</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-menu" href="contact.html">Kontakt</a>
+                                <a class="nav-link link-menu" href="./contact.html">Kontakt</a>
                             </li>
                         </ul>
                     </div>
@@ -55,7 +58,7 @@
         </div>
     </header>
 
-    <main class="container">
+    <main class="container" data-barba="container" data-barba-namespace="home">
         <!-- Content -->
         <section class="content">
             <!-- Hero -->
@@ -282,8 +285,9 @@
             </div>
        </section>
     </footer>
+    
 
-    <!-- Bootstrap JavaScript Libraries -->
+    <script type="module" src="./js/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>

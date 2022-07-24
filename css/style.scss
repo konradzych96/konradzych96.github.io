@@ -21,6 +21,7 @@ $dark: #120D31;
 $primary: #F03A47;
 $secondary: #F0F600;
 $light: #E9E3E6; 
+$swipeCover: #75B9BE;
 
 $container-max-widths: (
   sm: 540px,
@@ -275,4 +276,71 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
+}
+
+.barba-once {
+    opacity: 0;
+}
+
+.barba-once-active {
+    transition: all 1s linear;
+}
+
+.barba-once-to {
+    opacity: 1;
+}
+
+.fade-leave {
+    opacity: 1;
+}
+.fade-leave-active {
+    transition: opacity 0.3s linear;
+}
+.fade-leave-to {
+    opacity: 0;
+}
+ 
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-active {
+    transition: opacity 0.3s linear;
+}
+.fade-enter-to {
+    opacity: 1;
+}
+
+.clip-enter {
+    clip-path: circle(0%);
+}
+.clip-enter-active {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.clip-leave-active,
+.clip-enter-active {
+    transition: all 0.75s var(--easing);
+}
+.clip-enter-to {
+    clip-path: circle(75%);
+}
+.clip-leave {
+    opacity: 1;
+}
+.clip-leave-to {
+    opacity: 0;
+}
+
+#swiper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000%;
+    background-color: $swipeCover;
+    transform-origin: left;
+    // transform: scaleX(0);
+    transform: translate(-100%);
+    z-index: 5;
 }
