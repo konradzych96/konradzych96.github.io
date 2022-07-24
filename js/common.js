@@ -1,19 +1,25 @@
-import barba from '../node_modules/@barba/core/dist/barba.mjs'
-import anime from '../node_modules/animejs/lib/anime.es.js'
-
+import barba from "../node_modules/@barba/core/dist/barba.mjs";
+import anime from "../node_modules/animejs/lib/anime.es.js";
 
 const swiper = document.getElementById("swiper");
-const springConfig = "spring(1, 100, 25, 0)";
+const springConfig = "spring(1, 100, 100, 0)";
+
+const colors = ["#75B9BE", "#677DB7", "#E8D6CB", "#00CFC1"];
+
+const getRandomColor = () => {
+  return colors[Math.round(Math.random() * (colors.length - 1))];
+};
 
 barba.init({
+  async: true,
   transitions: [
     {
       name: "swipe",
       leave({ current }) {
-        // swiper.style.backgroundColor = "#F03A47";
+        swiper.style.backgroundColor = getRandomColor();
 
         const tl = anime.timeline({
-          duration: 400,
+          duration: 800,
           easing: springConfig,
         });
 
@@ -26,32 +32,34 @@ barba.init({
           {
             targets: current.container,
             opacity: 0,
-          }
-        );
-        return tl.finished;
-      },
-      enter({ next }) {
-        const tl = anime.timeline({
-          duration: 400,
-          easing: springConfig,
-        });
-
-        tl.add({
-          targets: swiper,
-          scaleX: [1, 0],
-        });
-
-        tl.add(
-          {
-            targets: next.container,
-            opacity: [0, 1],
           },
           0
         );
 
         return tl.finished;
       },
+      after({ next }) {
+        const tl = anime.timeline({
+          duration: 800,
+          easing: springConfig,
+        });
+
+        tl.add({
+          targets: next.container,
+          opacity: [0, 1],
+        });
+
+        tl.add(
+          {
+            targets: swiper,
+            scaleX: [1, 0],
+          },
+          0
+        );
+        // next.container.add();
+        return tl.finished;
+      },
     },
   ],
-  // preventRunning: true,
+  preventRunning: true,
 });
