@@ -1,4 +1,5 @@
-import barba from "../node_modules/@barba/core/dist/barba.mjs";
+// import barba from "../node_modules/@barba/core/dist/barba.mjs";
+import 'https://cdn.jsdelivr.net/npm/@barba/core';
 import anime from "../node_modules/animejs/lib/anime.es.js";
 
 const swiper = document.getElementById("swiper");
