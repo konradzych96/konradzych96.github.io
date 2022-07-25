@@ -2,9 +2,10 @@ import barba from "../node_modules/@barba/core/dist/barba.mjs";
 import anime from "../node_modules/animejs/lib/anime.es.js";
 
 const swiper = document.getElementById("swiper");
+const hero = document.getElementById("Hero");
 const springConfig = "spring(1, 100, 100, 0)";
 
-const colors = ["#75B9BE", "#677DB7", "#E8D6CB", "#00CFC1"];
+const colors = ["#75B9BE"];
 
 const getRandomColor = () => {
   return colors[Math.round(Math.random() * (colors.length - 1))];
@@ -15,9 +16,10 @@ barba.init({
   transitions: [
     {
       name: "swipe",
+      before({data}){
+        swiper.style.left = 0;
+      },
       leave({ current }) {
-        swiper.style.backgroundColor = getRandomColor();
-
         const tl = anime.timeline({
           duration: 800,
           easing: springConfig,
@@ -25,6 +27,7 @@ barba.init({
 
         tl.add({
           targets: swiper,
+          left: 0,
           scaleX: [0, 1],
         });
 
@@ -35,6 +38,15 @@ barba.init({
           },
           0
         );
+
+        // tl.add(
+        //   {
+        //     targets: hero,
+        //     opacity: 0,
+        //     translateX: 50,
+        //   },
+        //   0
+        // );
 
         return tl.finished;
       },
@@ -52,6 +64,7 @@ barba.init({
         tl.add(
           {
             targets: swiper,
+            left: screen.width,
             scaleX: [1, 0],
           },
           0

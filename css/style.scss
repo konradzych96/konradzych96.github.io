@@ -21,7 +21,7 @@ $dark: #120D31;
 $primary: #F03A47;
 $secondary: #F0F600;
 $light: #E9E3E6; 
-$swipeCover: #75B9BE;
+$swipeCover: $dark;
 
 $container-max-widths: (
   sm: 540px,
@@ -333,14 +333,19 @@ p {
 }
 
 #swiper {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 1000%;
+    height: 100%;
     background-color: $swipeCover;
     transform-origin: left;
     // transform: scaleX(0);
     transform: translate(-100%);
-    z-index: 5;
+    z-index: ;
+}
+
+#Hero{
+    position: relative;
+    z-index: 3;
 }
